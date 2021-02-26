@@ -1,0 +1,37 @@
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 100px auto;
+  position: relative;
+}
+
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rebeccapurple;
+  padding: 50px;
+}
+input {
+  margin: 5px 5px;
+  width: 300px;
+  margin-bottom: 20px;
+  background-color: rgb(238, 229, 247);
+}
+.btn {
+  text-align: center;
+  width: 300px;
+  margin: 10px 5px;
+}
+label {
+  font-weight: 500;
+  margin: 0px 5px;
+}
+p {
+  cursor: pointer;
+  text-align: right;
+  color: rebeccapurple;
+}
+p:hover {
+  color: red;
+}

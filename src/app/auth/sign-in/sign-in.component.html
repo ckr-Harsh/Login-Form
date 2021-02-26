@@ -1,0 +1,68 @@
+
+<div class="center">
+<h2>Firebase Login Page</h2>
+
+<form  [formGroup]="form">
+    <div 
+        class="alert alert-danger"
+        *ngIf='form.controls.invalid'>
+        Invalid Email or PassWord
+    </div>
+    <label>
+        Email or UserName
+    </label>
+    <input 
+        type="email"
+        autocomplete="email"
+        placeholder="example@abc.com"
+        #eM
+        required
+        class="form-control"
+        formControlName="Email">
+    <div class="alert alert-danger" *ngIf='Email.touched && Email.invalid'>
+        <div *ngIf='Email.errors.required'> Email  is required</div>
+        <div *ngIf='Email.errors.minlength'>
+            Email can't be shorter than {{Email.errors.minlength.requiredLength}}
+        </div>
+    </div>
+    <label for="password">
+        PassWord
+    </label>
+    <input
+        required
+        placeholder="*****"
+        #pAss
+        type="password" 
+        class="form-control"
+        autocomplete="current-password"
+        formControlName="Pass">
+    <div class="alert alert-danger" *ngIf='Pass.touched && Pass.invalid'>
+        <div *ngIf='Pass.errors.required'> PassWord  is required</div>
+        <div *ngIf='Pass.errors.minlength'>
+            PassWord can't be shorter than {{Pass.errors.minlength.requiredLength}}
+        </div>
+    </div>
+    <button 
+        class=" login btn btn-default btn-dark"
+        [disabled]='form.invalid'
+        (click)='SignIn(eM.value,pAss.value)'>
+        Login
+    </button>
+    <br>
+    <button 
+        class="btn btn-outline-dark"
+        (click)='signWithGoogle()'>
+        Sign In With Google
+    </button>
+    
+    
+
+      <p
+  (click)='goToHome()'>
+    Create New Account
+</p>
+</form>  
+
+</div>
+
+
