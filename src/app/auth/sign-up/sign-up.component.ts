@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Validators,FormControl,FormGroup } from '@angular/forms';
 import { FireService } from 'src/app/service/fire.service';
 import { Custom } from './Validator';
+import firebase from 'firebase';
 
 @Component({
   selector: 'sign-up',
@@ -9,6 +10,7 @@ import { Custom } from './Validator';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+    photo:any;
     Email:string;
     Password:string;
 
@@ -59,15 +61,22 @@ export class SignUpComponent implements OnInit {
     console.log(this.form.value);
   }
  
-  constructor(private authService:FireService){
+  constructor(
+    private authService:FireService,
+    ){
 
   }
 
-  SignUp(email,password) {
-    localStorage.setItem('fname',JSON.stringify(this.form.get('fname').value));
-    localStorage.setItem('lname',JSON.stringify(this.form.get('lname').value));
-    this.authService.SignUp(email, password);
+  SignUp(){
+
+    this.authService.SignUp(this.form.value);
     }
+
+    
+  sendLink(){
+    this.authService.sendEmailVerification();
+  }
+
 
 
 }

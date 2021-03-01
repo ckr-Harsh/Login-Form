@@ -1,7 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms'
 import { Router } from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms'
+import {AngularFireAuth} from '@angular/fire/auth'
 import { FireService } from 'src/app/service/fire.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { FireService } from 'src/app/service/fire.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent  {
+export class SignInComponent  implements OnInit {
+  isVerified:boolean;
   
   form=new FormGroup({
     Email:new FormControl('',[
@@ -30,16 +32,33 @@ export class SignInComponent  {
   }
 
 
-  constructor(private authService:FireService,public router:Router,public ngZone: NgZone){}
+  constructor(
+    private authService:FireService,
+    public router:Router,
+    public ngZone: NgZone,
+    public Auth: AngularFireAuth,
+    ){}
 
 
 
-    SignIn(email,password) {
-      console.log(email);
-      console.log(password);
-      this.authService.SignIn(email, password);
+ SignIn(email,password) {
+     this.authService.SignIn(email, password);
       email = '';
       password = '';
+      
+     
+      // console.log( await JSON.parse(localStorage.getItem('user')));
+      
+      // console.log(this.isVerified);
+      
+
+      // this.router.navigate(['auth/demo'])
+      
+      // if(isVerified.user.emailVerified==true){
+        
+      // }else{
+      //   alert('Please Verify your email');
+      // }
     }
 
     signWithGoogle(){
@@ -52,6 +71,11 @@ export class SignInComponent  {
       this.router.navigate(['signup'])
       })
       console.log('event');
-      
+    }
+
+    ngOnInit(){
+      this.authService.isLoggedIn?
+      this.router.navigate(['demo']):
+      this.router.navigate(['signin'])
     }
 }

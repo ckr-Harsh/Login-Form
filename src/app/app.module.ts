@@ -11,10 +11,18 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FireService } from './service/fire.service';
-import {config} from '../environments/environment'
 import { authRouting } from './auth/auth-routing';
 
 
+let config={
+  apiKey: "AIzaSyD-JzqyndYkqvog30wtkDXsVGau3Y8KdlI",
+  authDomain: "authenticate-2e379.firebaseapp.com",
+  projectId: "authenticate-2e379",
+  storageBucket: "authenticate-2e379.appspot.com",
+  messagingSenderId: "102439631208",
+  appId: "1:102439631208:web:1a7723b813cf56b529bedd",
+  measurementId: "G-LPVB6CRZH6"
+}
 
 @NgModule({
   declarations: [

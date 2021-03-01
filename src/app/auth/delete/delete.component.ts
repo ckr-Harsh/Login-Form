@@ -1,5 +1,4 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { FireService } from 'src/app/service/fire.service';
 
@@ -9,25 +8,33 @@ import { FireService } from 'src/app/service/fire.service';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
-  name:string;
+  name;
+  photo;
   constructor(
     private service : FireService,
-    private Auth:AngularFireAuth,
-    public ngZone:NgZone,
     public router: Router,
     ) {
    }
    
 
     
-  ngOnInit(){
-    this.service.isLoggedIn();
-    let data = localStorage.getItem('fname');
-     this.name=data.trim()  
+ ngOnInit(){
+    
+    this.photo='https://picsum.photos/200/300';
+    setTimeout(()=>{
+      this.Data()
+    },500)
+    
+    
   }
+  Data(){
+    this.name= JSON.parse(localStorage.getItem('user'));
+    console.log(this.name);
+    
+  }
+
 
   SignOut(){
     this.service.SignOut();
-    localStorage.setItem('fname',null);
   }
 }

@@ -12,3 +12,6 @@ h2 {
   text-align: center;
   color: rebeccapurple;
 }
+img {
+  border-radius: 50% 50%;
+}

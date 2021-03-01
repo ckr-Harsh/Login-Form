@@ -7,6 +7,7 @@
         </label>
         <input 
             type="text"
+            #fname
             placeholder="John"
             class="form-control"
             formControlName="fname">
@@ -112,11 +113,22 @@
                     Passwords don't match
             </div>
         </div>
+        <!-- <label>
+            Choose Your Profile picture
+        </label><br>
+        <input 
+            #img
+            type="file">
+        <br> -->
         <button 
             class="btn btn-dark"
             [disabled]='form.invalid'
-            (click)='SignUp(Email.value,pass.value)'>
+            (click)='SignUp()'>
             Create Account
         </button>
+        <p
+  (click)='sendLink()'>
+    Resend Verification Mail
+</p>
     </form>
 </div>

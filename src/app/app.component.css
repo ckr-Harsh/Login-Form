@@ -17,3 +17,7 @@ span {
 h3 {
   display: inline;
 }
+a {
+  color: red;
+  cursor: pointer;
+}
