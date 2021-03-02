@@ -11,30 +11,33 @@ export class DeleteComponent implements OnInit {
   name;
   photo;
   constructor(
-    private service : FireService,
+    private service: FireService,
     public router: Router,
-    ) {
-   }
-   
+  ) {
+  }
 
-    
- ngOnInit(){
-    
-    this.photo='https://picsum.photos/200/300';
-    setTimeout(()=>{
+
+
+  ngOnInit() {
+    this.service.isLoggedIn ?
+      this.router.navigate(['demo']) :
+      this.router.navigate(['signin'])
+
+    this.photo = 'https://picsum.photos/200/300';
+    setTimeout(() => {
       this.Data()
-    },500)
-    
-    
+    }, 500)
+
+
   }
-  Data(){
-    this.name= JSON.parse(localStorage.getItem('user'));
+  Data() {
+    this.name = JSON.parse(localStorage.getItem('user'));
     console.log(this.name);
-    
+
   }
 
 
-  SignOut(){
+  SignOut() {
     this.service.SignOut();
   }
 }

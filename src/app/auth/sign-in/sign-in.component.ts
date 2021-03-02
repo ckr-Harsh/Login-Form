@@ -11,7 +11,6 @@ import { FireService } from 'src/app/service/fire.service';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent  implements OnInit {
-  isVerified:boolean;
   
   form=new FormGroup({
     Email:new FormControl('',[
@@ -45,20 +44,7 @@ export class SignInComponent  implements OnInit {
      this.authService.SignIn(email, password);
       email = '';
       password = '';
-      
-     
-      // console.log( await JSON.parse(localStorage.getItem('user')));
-      
-      // console.log(this.isVerified);
-      
-
-      // this.router.navigate(['auth/demo'])
-      
-      // if(isVerified.user.emailVerified==true){
-        
-      // }else{
-      //   alert('Please Verify your email');
-      // }
+   
     }
 
     signWithGoogle(){
@@ -74,8 +60,5 @@ export class SignInComponent  implements OnInit {
     }
 
     ngOnInit(){
-      this.authService.isLoggedIn?
-      this.router.navigate(['demo']):
-      this.router.navigate(['signin'])
     }
 }

@@ -35,17 +35,11 @@ export class FireService {
   });
   }
 
- //Verification LInk
-   async sendEmailVerification(){
-    await (await this.Auth.currentUser).sendEmailVerification();
-    }
-
   // Previous Signup Method
     SignUp(data:any){
       this.Auth
       .createUserWithEmailAndPassword(data.email,data.password)
       .then( res=>{
-          this.sendEmailVerification();
           
           res.user.updateProfile({
             displayName: `${data.fname}`

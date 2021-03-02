@@ -73,9 +73,9 @@ export class SignUpComponent implements OnInit {
     }
 
     
-  sendLink(){
-    this.authService.sendEmailVerification();
-  }
+  // sendLink(){
+  //   this.authService.sendEmailVerification();
+  // }
 
 
 
