@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  Validators,FormControl,FormGroup } from '@angular/forms';
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { FireService } from 'src/app/service/fire.service';
 import { Custom } from './Validator';
 import firebase from 'firebase';
@@ -7,76 +7,62 @@ import firebase from 'firebase';
 @Component({
   selector: 'sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
-    photo:any;
-    Email:string;
-    Password:string;
+  photo: any;
+  Email: string;
+  Password: string;
 
-  form = new FormGroup({
-    fname: new FormControl('',[
-      Validators.required,
-      Validators.minLength(3)
-    ]),
-    lname: new FormControl('',[
-      Validators.required,
-      Validators.minLength(3)
-    ]),
-    email:new FormControl('',[
-      Validators.required,
-      Validators.email,
-      Validators.minLength(5),
-    ]),
-    password: new FormControl('',[
-      Validators.required,
-      Validators.minLength(6),
+  form = new FormGroup(
+    {
+      fname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      lname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.minLength(5),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+      confirmPass: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+    },
+    {
+      validators: Custom.Match,
+    }
+  );
 
-    ]),
-    confirmPass: new FormControl('',[
-      Validators.required,
-      Validators.minLength(6),
-    ]),
-  },{
-    validators:Custom.Match,
-  })
-  
-  get fname(){
+  get fname() {
     return this.form.get('fname');
   }
-  get lname(){
+  get lname() {
     return this.form.get('lname');
   }
-  get email(){
+  get email() {
     return this.form.get('email');
   }
-  get password(){
+  get password() {
     return this.form.get('password');
-    
   }
-  get confirmPass(){
+  get confirmPass() {
     return this.form.get('confirmPass');
   }
-  ngOnInit(){
-    console.log(this.form.value);
-  }
- 
-  constructor(
-    private authService:FireService,
-    ){
+  ngOnInit() {}
 
-  }
+  constructor(private authService: FireService) {}
 
-  SignUp(){
-
+  SignUp() {
     this.authService.SignUp(this.form.value);
-    }
-
-    
-  // sendLink(){
-  //   this.authService.sendEmailVerification();
-  // }
-
-
-
+  }
 }

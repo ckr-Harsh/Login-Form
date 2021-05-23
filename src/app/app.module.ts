@@ -12,6 +12,14 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FireService } from './service/fire.service';
 import { authRouting } from './auth/auth-routing';
+import { FilterPipe } from './service/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+import { AddToCartDirDirective } from './add-to-cart-dir.directive';
+import { MenuDirDirective } from './directives/menu-dir.directive';
+import { CheckoutDirective } from './directives/checkout.directive';
+import { ProductListDirective } from './directives/product-list.directive';
+import { BillingDirective } from './directives/billing.directive';
+import { BillingCartDirective } from './directives/billing-cart.directive';
 
 
 let config={
@@ -27,6 +35,14 @@ let config={
 @NgModule({
   declarations: [
     AppComponent,
+    FilterPipe,
+    SortPipe,
+    AddToCartDirDirective,
+    MenuDirDirective,
+    CheckoutDirective,
+    ProductListDirective,
+    BillingDirective,
+    BillingCartDirective,
   ],
   imports: [
     BrowserModule,

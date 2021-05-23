@@ -1,134 +1,94 @@
 <div class="center">
- <h2>Create new Account</h2>
+  <h2>Create new Account</h2>
 
-    <form   [formGroup]="form" >
-        <label for="">
-            First Name*
-        </label>
-        <input 
-            type="text"
-            #fname
-            placeholder="John"
-            class="form-control"
-            formControlName="fname">
-        <div 
-            class="alert alert-danger" 
-            *ngIf='fname.touched && fname.invalid'>
-            <div *ngIf='fname.errors.required'>
-                First Name is required
-            </div>
-            <div *ngIf='fname.errors.minlength'>
-                First Name can't be less than {{fname.errors.minlength.requiredLength}} letters
-            </div>
-        </div>
-        <label for="">
-            Last Name*
-        </label>
-        <input 
-            class="form-control"
-            type='text'
-            placeholder="Doe"
-            formControlName="lname">
-        <div class="alert alert-danger" *ngIf='lname.touched && lname.invalid'>
-            <div 
-                *ngIf='lname.errors.required'>
-                Last Name is required
-            </div>
-            <div 
-                *ngIf='lname.errors.minlength'>
-                Last Name can't be less than {{lname.errors.minlength.requiredLength}} letters
-            </div>
-        </div>
+  <form [formGroup]="form">
+    <label for=""> First Name* </label>
+    <input
+      type="text"
+      #fname
+      placeholder="John"
+      class="form-control"
+      formControlName="fname"
+    />
+    <div class="alert alert-danger" *ngIf="fname.touched && fname.invalid">
+      <div *ngIf="fname.errors.required">First Name is required</div>
+      <div *ngIf="fname.errors.minlength">
+        First Name can't be less than
+        {{ fname.errors.minlength.requiredLength }} letters
+      </div>
+    </div>
+    <label for=""> Last Name* </label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Doe"
+      formControlName="lname"
+    />
+    <div class="alert alert-danger" *ngIf="lname.touched && lname.invalid">
+      <div *ngIf="lname.errors.required">Last Name is required</div>
+      <div *ngIf="lname.errors.minlength">
+        Last Name can't be less than
+        {{ lname.errors.minlength.requiredLength }} letters
+      </div>
+    </div>
 
-        
-        <label>
-            Email*
-        </label>
-        <input
-            type="email"
-            class="form-control"
-            #Email
-            formControlName="email"
-            autocomplete="email"
-            placeholder="example@abc.com">
-            <div 
-            class="alert alert-danger" 
-            *ngIf='email.touched && email.invalid'>
-            <div 
-                *ngIf='email.errors.required' >
-                Email is required
-            </div>
-            <div 
-                *ngIf='email.errors.minlength' >
-                Email can't be less than {{email.errors.minlength.requiredLength}} letters
-            </div>
-            <div 
-                *ngIf='email.errors.email' >
-                Enter a valid email address
-            </div>
-        </div>
-        <label>
-            Password*
-        </label>
-        <input
-            type="password"
-            placeholder="*****"
-            class="form-control"
-            formControlName="password"
-            autocomplete="new-password">
-        <div 
-            class="alert alert-danger"
-            *ngIf='password.touched && password.invalid'>
-            <div    
-                *ngIf='password.errors.required'>
-                Password is required
-            </div>
-            <div 
-                *ngIf='password.errors.minlength'>
-                Password can't be shorter than {{password.errors.minlength.requiredLength}} letters
-            </div>
-        </div>
-        <label>
-           Confirm Password*
-        </label>
-        <input
-            type="password"
-            placeholder="*****"
-            #pass
-            class="form-control"
-            autocomplete="new-password"
-            formControlName="confirmPass">
-        <div 
-            class="alert alert-danger"
-            *ngIf='confirmPass.touched && confirmPass.invalid'>
-            <div    
-                *ngIf='confirmPass.errors.required'>
-                Password is required
-            </div>
-            <div 
-                *ngIf='confirmPass().errors.minlength'>
-                Password can't be shorter than {{confirmPass.errors.minlength.requiredLength}} letters
-            </div>
-            <div *ngIf='form.controls.errors.Match'>
-                    Passwords don't match
-            </div>
-        </div>
-        <!-- <label>
-            Choose Your Profile picture
-        </label><br>
-        <input 
-            #img
-            type="file">
-        <br> -->
-        <button 
-            class="btn btn-dark"
-            [disabled]='form.invalid'
-            (click)='SignUp()'>
-            Create Account
-        </button>
-        <!-- <p
-  (click)='sendLink()'>
-    Resend Verification Mail
-</p> -->
-    </form>
+    <label> Email* </label>
+    <input
+      type="email"
+      class="form-control"
+      #Email
+      formControlName="email"
+      autocomplete="email"
+      placeholder="example@abc.com"
+    />
+    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.minlength">
+        Email can't be less than
+        {{ email.errors.minlength.requiredLength }} letters
+      </div>
+      <div *ngIf="email.errors.email">Enter a valid email address</div>
+    </div>
+    <label> Password* </label>
+    <input
+      type="password"
+      placeholder="*****"
+      class="form-control"
+      formControlName="password"
+      autocomplete="new-password"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="password.touched && password.invalid"
+    >
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">
+        Password can't be shorter than
+        {{ password.errors.minlength.requiredLength }} letters
+      </div>
+    </div>
+    <label> Confirm Password* </label>
+    <input
+      type="password"
+      placeholder="*****"
+      #pass
+      class="form-control"
+      autocomplete="new-password"
+      formControlName="confirmPass"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="confirmPass.touched && confirmPass.invalid"
+    >
+      <div *ngIf="confirmPass.errors.required">Password is required</div>
+      <div *ngIf="confirmPass().errors.minlength">
+        Password can't be shorter than
+        {{ confirmPass.errors.minlength.requiredLength }} letters
+      </div>
+      <div *ngIf="form.controls.errors.Match">Passwords don't match</div>
+    </div>
+    <button class="btn btn-dark" [disabled]="form.invalid" (click)="SignUp()">
+      Create Account
+    </button>
+  </form>
 </div>

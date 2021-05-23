@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth-guard';
 import { DeleteComponent } from './delete/delete.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
-  //{
-  // path:'auth',children:[
-      {path:'signin',component:SignInComponent},
-      {path:'signup', component:SignUpComponent},
-      {path:'demo',component:DeleteComponent,},
-  // ]
-  //  }
+  {
+    path: '',
+    component: SignInComponent,
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class authRouting { }
+export class authRouting {}
