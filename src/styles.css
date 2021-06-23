@@ -11,3 +11,20 @@ body {
 .form-control.ng-valid.ng-touched {
   border-left: 5px solid green;
 }
+
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background: inherit;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: inherit;
+}

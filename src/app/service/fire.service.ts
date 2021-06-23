@@ -45,7 +45,7 @@ export class FireService {
         this.router.navigate(['auth']);
       })
       .catch((err) => {
-        console.log('Something went wrong:', err.message);
+        // console.log('Something went wrong:', err.message);
         alert(err.code);
       });
   }
@@ -57,7 +57,7 @@ export class FireService {
         this.router.navigate(['dashboard']);
       })
       .catch((err) => {
-        console.log('Something went wrong', err);
+        // console.log('Something went wrong', err);
         alert(err.message);
       });
   }
@@ -72,8 +72,6 @@ export class FireService {
   //Check if user logged in or not
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
-
     return user !== null ? true : false;
   }
 
@@ -81,7 +79,9 @@ export class FireService {
   GoogleAuth() {
     return this.Auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((res) => {
-        this.router.navigate(['/dashboard']);
+        res
+          ? this.router.navigate(['dashboard'])
+          : console.error('Something went wrong');
       })
       .catch((err) => {
         alert(err.message);

@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { StorageService } from '../service/storage.service';
 import { CartService } from '../service/cart.service';
 import { FormBuilder } from '@angular/forms';
@@ -61,7 +61,7 @@ import { FormBuilder } from '@angular/forms';
       >
         Confirm and Place Order
       </button>
-      <a routerLink="/products" class="btn btn-sm btn-info float-right"
+      <a routerLink="products" class="btn btn-sm btn-info float-right"
         >Continue Shopping</a
       >
     </form>

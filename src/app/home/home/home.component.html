@@ -1,8 +1,17 @@
 <div class="main">
-  <h2>Welcome to this page</h2>
-
-  <img alt="photo" src="{{ name?.photoURL || photo }}" />
-  <h3>{{ name?.displayName }}</h3>
-
+  <div class="header">
+    <h2>Cart-X</h2>
+  </div>
+  <div class="icon" [title]="name?.displayName">
+    <img
+      width="50"
+      height="50"
+      alt="photo"
+      src="{{ name?.photoURL || photo }}"
+    />
+  </div>
   <button class="btn btn-outline-dark" (click)="SignOut()">Sign Out</button>
+</div>
+<div class="wrapper">
+  <app-products></app-products>
 </div>

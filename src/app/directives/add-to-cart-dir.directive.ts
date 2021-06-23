@@ -68,7 +68,7 @@ import { CartService } from '../service/cart.service';
           </tbody>
         </table>
         <a
-          routerLink="/billing"
+          routerLink="billing"
           class="btn btn-sm btn-primary"
           *ngIf="cart.cartItemsList && cart.cartTotal"
           >Checkout</a

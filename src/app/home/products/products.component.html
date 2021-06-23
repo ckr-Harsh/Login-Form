@@ -1,5 +1,5 @@
 <menu></menu>
-<div class="container">
+<div class="wrapper">
   <div class="form-row align-items-center">
     <div class="col-md-9">
       <div class="input-group mb-4 mt-2">
@@ -27,10 +27,10 @@
   <div class="row">
     <div class="col-md-7">
       <productslist-dir
-        (refresh)="ref($event)"
-        [allProductList]="products.data"
-        [searchedText]="searchText"
-        [sortingBy]="sortOption"
+        (refresh)="ref()"
+        [__allprdts]="products.data"
+        [__searchedProduct]="searchText"
+        [sortByOption]="sortOption"
       ></productslist-dir>
     </div>
     <div class="col-md-5">

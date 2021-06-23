@@ -30,12 +30,6 @@ import { StorageService } from '../service/storage.service';
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6 text-left">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROSGhNugPi-wkkvEePwHNppt8AaZRlUk-y9yEapagLNUaXxy_G"
-                class="logo mr-2 mb-4 float-left"
-              />
-            </div>
             <div class="col-md-6 text-right">
               <h4># INV-{{ invoiceNo }}</h4>
             </div>
@@ -129,14 +123,14 @@ import { StorageService } from '../service/storage.service';
         <div class="card-body">
           Please shop some products & Provide billing information .<a
             class="btn btn-sm btn-info float-right ml-2"
-            routerLink="/products"
+            routerLink="products"
           >
             Continue Shopping</a
           >
           &nbsp; &nbsp;
           <a
             class="btn btn-sm btn-info float-right"
-            routerLink="/billing"
+            routerLink="billing"
             *ngIf="cart.cartItemsList && cart.cartTotal"
           >
             Go to Billing</a
@@ -188,7 +182,7 @@ export class CheckOutDir {
 
     //this.checkOutFlag = Object.keys(this.storage.get()).length;
     //console.log(this.checkOutFlag)
-    document.location.href = '/products';
+    document.location.href = 'products';
   }
 
   print() {

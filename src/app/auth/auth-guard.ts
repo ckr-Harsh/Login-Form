@@ -21,8 +21,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.service.isLoggedIn) {
-      // authorised so return true
+    if (this.service.isLoggedIn || this.service.GoogleAuth) {
       return true;
     }
 

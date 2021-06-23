@@ -23,6 +23,5 @@ export class HomeComponent implements OnInit {
 
   SignOut() {
     this.service.SignOut();
-    console.log('signout');
   }
 }

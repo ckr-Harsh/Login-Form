@@ -73,13 +73,13 @@ export class BillingFormModel {
       errorMsg: 'Please enter city',
     },
     {
-      label: 'State',
-      placeholder: 'State',
+      label: 'Town/City',
+      placeholder: 'Town/City',
       uid: 'state',
       type: 'select',
       value: '',
       validation: [Validators.required],
-      options: ['Tamil Nadu', 'Andhra Pradesh', 'Karnataka'],
+      options: ['Shimla', 'Jammu', 'Kalachak', 'Kotkhai'],
       errorMsg: 'Please enter state',
     },
     {

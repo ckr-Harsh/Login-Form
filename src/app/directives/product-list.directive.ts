@@ -7,14 +7,7 @@ import { CartService } from '../service/cart.service';
   selector: 'productslist-dir',
   template: `
     <div class="row">
-      <div
-        class="col-md-4"
-        *ngFor="
-          let item of __allprdts
-            | filter: __searchedProduct
-            | sortBy: sortByOption
-        "
-      >
+      <div class="col-md-4" *ngFor="let item of __allprdts">
         <div class="card">
           <div>
             <img
@@ -66,9 +59,9 @@ import { CartService } from '../service/cart.service';
 export class ProductsListDir {
   constructor(public storage: StorageService, public cart: CartService) {}
 
-  @Input('allProductList') __allprdts: any = {};
-  @Input('searchedText') __searchedProduct: string = '';
-  @Input('sortingBy') sortByOption: string = '';
+  @Input() __allprdts: any = {};
+  @Input() __searchedProduct: string = '';
+  @Input() sortByOption: string = '';
 
   @Output() refresh: EventEmitter<any> = new EventEmitter();
 
