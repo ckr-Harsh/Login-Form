@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "trial": {
+    "Cart-X": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/trial",
+            "outputPath": "dist/Cart-X",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "trial:build"
+            "browserTarget": "Cart-X:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "trial:build:production"
+              "browserTarget": "Cart-X:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "trial:build"
+            "browserTarget": "Cart-X:build"
           }
         },
         "test": {
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "trial:serve"
+            "devServerTarget": "Cart-X:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "trial:serve:production"
+              "devServerTarget": "Cart-X:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "trial"
+  "defaultProject": "Cart-X"
 }

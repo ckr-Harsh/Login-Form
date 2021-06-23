@@ -35,13 +35,6 @@ export class SortPipe implements PipeTransform {
       }
     });
 
-    /*if(sortField[1] == 'htl'){
-     let temp = [];
-     for(let i = (products.length -1); i>=0 ; i--){
-       temp.push(products[i]);
-     }
-     products=temp;
-   }*/
     return products;
   }
 }
