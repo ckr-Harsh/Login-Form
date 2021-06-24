@@ -7,7 +7,14 @@ import { CartService } from '../service/cart.service';
   selector: 'productslist-dir',
   template: `
     <div class="row">
-      <div class="col-md-4" *ngFor="let item of __allprdts">
+      <div
+        class="col-md-4"
+        *ngFor="
+          let item of __allprdts
+            | filter: __searchedProduct
+            | sort: sortByOption
+        "
+      >
         <div class="card">
           <div>
             <img

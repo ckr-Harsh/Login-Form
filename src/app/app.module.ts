@@ -32,7 +32,7 @@ let config = {
 };
 
 @NgModule({
-  declarations: [AppComponent, SortPipe, FilterPipe],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
