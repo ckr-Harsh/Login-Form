@@ -16,10 +16,10 @@ export class ProductsComponent implements OnInit {
   constructor(public products: ProductsModel) {}
 
   ngOnInit(): void {
-    this.ref();
+    // this.ref(e);
   }
 
-  ref() {
+  ref(e) {
     this.cartflag = false;
     setTimeout(() => {
       this.cartflag = true;

@@ -59,9 +59,9 @@ import { CartService } from '../service/cart.service';
 export class ProductsListDir {
   constructor(public storage: StorageService, public cart: CartService) {}
 
-  @Input() __allprdts: any = {};
-  @Input() __searchedProduct: string = '';
-  @Input() sortByOption: string = '';
+  @Input('allProductList') __allprdts: any = {};
+  @Input('searchedText') __searchedProduct: string = '';
+  @Input('sortingBy') sortByOption: string = '';
 
   @Output() refresh: EventEmitter<any> = new EventEmitter();
 
